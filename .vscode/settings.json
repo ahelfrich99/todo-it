@@ -3,6 +3,9 @@
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
   "cSpell.words": [
     "djhtml"
   ]
