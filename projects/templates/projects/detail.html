@@ -1,41 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>{{ project.name }}</title>
-  </head>
-  <body>
-    <main>
-      <div>
-        <h1>{{ project.name }}</h1>
-        <p>{{ project.description }}</p>
-        <h2>Tasks</h2>
-        <a href="{% url 'create_task' %}">Create a new task</a>
-        {% if task %}
-        <table>
-          <thead>
-            <th>Name</th>
-            <th>Assignee</th>
-            <th>Start date</th>
-            <th>Due date</th>
-            <th>Is completed</th>
-          </thead>
-          <tbody>
-            {% for item in task %}
-            <tr>
-              <td>{{ item.name }}</td>
-              <td>{{ item.assignee }}</td>
-              <td>{{ item.start_date }}</td>
-              <td>{{ item.due_date }}</td>
-              <td>{{ item.is_completed|yesno:"yes,no" }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        {% else %}
-        <p>This project has no tasks</p>
-        {% endif %}
-      </div>
-    </main>
-  </body>
-</html>
+{% extends 'base.html' %} {% block title %}
+<title>{{ project.name }}</title>
+{% endblock title %} {% block content %}
+<main>
+  <div>
+    <h1>{{ project.name }}</h1>
+    <p>{{ project.description }}</p>
+    <h2>Tasks</h2>
+    <a href="{% url 'create_task' %}">Create a new task</a>
+    {% if task %}
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Assignee</th>
+        <th>Start date</th>
+        <th>Due date</th>
+        <th>Is completed</th>
+      </thead>
+      <tbody>
+        {% for item in task %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.assignee }}</td>
+          <td>{{ item.start_date }}</td>
+          <td>{{ item.due_date }}</td>
+          <td>{{ item.is_completed|yesno:"yes,no" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>This project has no tasks</p>
+    {% endif %}
+  </div>
+</main>
+{% endblock content %}

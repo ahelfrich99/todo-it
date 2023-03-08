@@ -1,36 +1,31 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>My Tasks</title>
-  </head>
-  <body>
-    <main>
-      <div>
-        <h1>My Tasks</h1>
-        {% if my_tasks|length != 0 %}
-        <table>
-          <thead>
-            <th>Name</th>
-            <th>Start date</th>
-            <th>Due date</th>
-            <th>Is completed</th>
-          </thead>
-          <tbody>
-            {% for task in my_tasks %}
-            <tr>
-              <td>{{ task.name }}</td>
-              <td>{{ task.start_date }}</td>
-              <td>{{ task.due_date }}</td>
-              <td>{{ task.is_completed|yesno:"yes,no" }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        {% else %}
-        <p>You have no tasks</p>
-        {% endif %}
-      </div>
-    </main>
-  </body>
-</html>
+{% extends 'base.html' %} {% block title %}
+<title>My Tasks</title>
+{% endblock title %} {% block content %}
+<main>
+  <div>
+    <h1>My Tasks</h1>
+    {% if my_tasks|length != 0 %}
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Start date</th>
+        <th>Due date</th>
+        <th>Is completed</th>
+      </thead>
+      <tbody>
+        {% for task in my_tasks %}
+        <tr>
+          <td>{{ task.name }}</td>
+          <td>{{ task.start_date }}</td>
+          <td>{{ task.due_date }}</td>
+          <td>{{ task.is_completed|yesno:"yes,no" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>You have no tasks</p>
+    {% endif %}
+  </div>
+</main>
+{% endblock content %}

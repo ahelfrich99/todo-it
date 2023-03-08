@@ -1,18 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>New Task</title>
-  </head>
-  <body>
-    <main>
-      <div>
-        <h1>Create a new task</h1>
-        <form method="post">
-          {% csrf_token %} {{ form.as_p }}
-          <button>Create</button>
-        </form>
-      </div>
-    </main>
-  </body>
-</html>
+{% extends 'base.html' %} {% block title %}
+<title>New Task</title>
+{% endblock title %} {% block content %}
+<main>
+  <div>
+    <h1>Create a new task</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button>Create</button>
+    </form>
+  </div>
+</main>
+{% endblock content %}
