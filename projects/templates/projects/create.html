@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>New Project</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>Create a new project</h1>
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
+          <button>Create</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
